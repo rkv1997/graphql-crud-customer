@@ -1,0 +1,31 @@
+type Customer {
+    id: ID!
+    name: String!
+    email: String!
+    city: String!
+}
+
+type Query {
+    getAllCustomers: [Customer]
+    getCustomerByEmail(email: String!): Customer
+    getCustomersByCity(city: String!): [Customer]
+}
+
+input CustomerInput {
+    name: String!
+    email: String!
+    city: String!
+}
+
+input UpdateCustomerInput {
+    id: ID!
+    name: String
+    email: String
+    city: String
+}
+
+type Mutation {
+    addCustomer(input: CustomerInput!): Customer
+    updateCustomer(input: UpdateCustomerInput!): Customer
+    deleteCustomer(id: ID!): Boolean
+}
